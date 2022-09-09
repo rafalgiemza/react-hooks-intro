@@ -1,5 +1,5 @@
 export function PokemonsFavouritesList() {
-  // TODO
+  // TODO 4.2
   const favouritesContext = Array();
 
   if (favouritesContext.length === 0) return <h2>No favourites :(</h2>

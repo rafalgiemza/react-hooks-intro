@@ -4,20 +4,20 @@ import { List } from './styled/List'
 import { Search, SearchHeader } from './styled/Search'
 
 export function PokemonsList({ pokemons, setSelectedPokemon, favourites, setFavourites }: PokemonListProps) {
-  // TODO
+  // TODO 1.1
   const filteredPokemons = pokemons
   const setFilteredPokemons = () => { }
 
   const handleOnSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // TODO
+    // TODO 1.2
   }
 
   const handleOnRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
-    //TODO
+    //TODO 2.2
   }
 
   const handleOnFavouriteChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // TODO
+    // TODO 4.3
   }
 
   return (

@@ -6,6 +6,7 @@ import { PokemonsList } from "./PokemonsList";
 import { Loading } from "./styled/Loading";
 
 export function PokemonsShowTime() {
+  // TODO 3.2
   const bulbasaur = {
     "id": 1,
     "name": "Bulbasaur",
@@ -21,15 +22,15 @@ export function PokemonsShowTime() {
     "speed": 45
   }
 
-  // TODO
+  // TODO 3.1
   const pokemonsList = [bulbasaur]
   const setPokemonList = () => { }
+  // TODO 2.1
   const selectedPokemon = null
   const setSelectedPokemon = () => { }
+  // TODO 4.1
   const favourites = Array()
   const setFavourites = () => { }
-
-  // TODO
 
   if (pokemonsList.length === 0) return <Loading />
 
