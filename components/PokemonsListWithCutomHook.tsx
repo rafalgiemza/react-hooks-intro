@@ -1,13 +1,11 @@
 import { PokemonListProps } from '../interfaces/PokemonListProps'
 import { List } from './styled/List'
-import { ResetButton, Search, SearchHeader } from './styled/Search'
+import { Search, SearchHeader } from './styled/Search'
 import { usePokemonList } from '../hooks/usePokemonList'
 
 export function PokemonsList(pokemonListProps: PokemonListProps) {
   const {
-    searchRef,
     filteredPokemons,
-    handleResetSearch,
     handleOnSearchChange,
     handleOnRadioChange,
     handleOnFavouriteChange
@@ -19,9 +17,8 @@ export function PokemonsList(pokemonListProps: PokemonListProps) {
       <Search>
         <SearchHeader>
           <label>Search by name:</label>
-          <ResetButton onClick={handleResetSearch}>RESET</ResetButton>
         </SearchHeader>
-        <input onChange={(event) => handleOnSearchChange(event)} ref={searchRef} />
+        <input onChange={(event) => handleOnSearchChange(event)} />
       </Search>
       <List>
         {filteredPokemons.map(pokemon => (

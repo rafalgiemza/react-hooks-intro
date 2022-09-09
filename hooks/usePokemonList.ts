@@ -4,7 +4,6 @@ import { PokemonListProps } from "../interfaces/PokemonListProps"
 
 export function usePokemonList({ pokemons, setSelectedPokemon, favourites, setFavourites }: PokemonListProps) {
   const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>(pokemons)
-  const searchRef = useRef<HTMLInputElement | null>(null)
 
   useEffect(() => {
     setFilteredPokemons(pokemons)
@@ -12,11 +11,6 @@ export function usePokemonList({ pokemons, setSelectedPokemon, favourites, setFa
 
   const handleOnSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFilteredPokemons(pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(event.target.value.toLowerCase())))
-  }
-
-  const handleResetSearch = () => {
-    if (searchRef.current) searchRef.current.value = ''
-    setFilteredPokemons(pokemons)
   }
 
   const handleOnRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -35,9 +29,7 @@ export function usePokemonList({ pokemons, setSelectedPokemon, favourites, setFa
   }
 
   return {
-    searchRef,
     filteredPokemons,
-    handleResetSearch,
     handleOnSearchChange,
     handleOnRadioChange,
     handleOnFavouriteChange
