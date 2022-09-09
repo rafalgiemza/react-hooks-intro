@@ -10,7 +10,3 @@ export const SearchHeader = styled.div`
   justify-content: space-between;
   margin: 5px;
 `
-
-export const ResetButton = styled.button`
-  background-color: red;
-`
