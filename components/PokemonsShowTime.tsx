@@ -1,21 +1,37 @@
-import { useEffect, useState } from "react";
 import { FavouritesContext } from "./FavouritesContext";
-import { Pokemon } from "../interfaces/Pokemon";
 import { Layout } from "./layout/Layout";
 import { PokemonCard } from "./PokemonCard";
 import { PokemonsFavouritesList } from "./PokemonsFavouritesList";
 import { PokemonsList } from "./PokemonsList";
+import { Loading } from "./styled/Loading";
 
 export function PokemonsShowTime() {
-  const [pokemonsList, setPokemonList] = useState<Pokemon[]>([])
-  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null)
-  const [favourites, setFavourites] = useState<Pokemon[]>([])
+  const bulbasaur = {
+    "id": 1,
+    "name": "Bulbasaur",
+    "type": [
+      "Grass",
+      "Poison"
+    ],
+    "hp": 45,
+    "attack": 49,
+    "defense": 49,
+    "special_attack": 65,
+    "special_defense": 65,
+    "speed": 45
+  }
 
-  useEffect(() => {
-    fetch("/api/pokemons")
-      .then((res) => res.json())
-      .then((data) => setPokemonList(data));
-  }, [])
+  // TODO
+  const pokemonsList = [bulbasaur]
+  const setPokemonList = () => { }
+  const selectedPokemon = null
+  const setSelectedPokemon = () => { }
+  const favourites = Array()
+  const setFavourites = () => { }
+
+  // TODO
+
+  if (pokemonsList.length === 0) return <Loading />
 
   return (
     <Layout>

@@ -1,8 +1,6 @@
-import { useContext, useEffect } from "react";
-import { FavouritesContext } from "./FavouritesContext";
-
 export function PokemonsFavouritesList() {
-  const favouritesContext = useContext(FavouritesContext);
+  // TODO
+  const favouritesContext = Array();
 
   if (favouritesContext.length === 0) return <h2>No favourites :(</h2>
 

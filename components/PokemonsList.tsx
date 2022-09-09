@@ -1,33 +1,23 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Pokemon } from '../interfaces/Pokemon'
+import React, { ChangeEvent, useState } from 'react'
 import { PokemonListProps } from '../interfaces/PokemonListProps'
 import { List } from './styled/List'
 import { Search, SearchHeader } from './styled/Search'
 
 export function PokemonsList({ pokemons, setSelectedPokemon, favourites, setFavourites }: PokemonListProps) {
-  const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>(pokemons)
-
-  useEffect(() => {
-    setFilteredPokemons(pokemons)
-  }, [pokemons])
+  // TODO
+  const filteredPokemons = pokemons
+  const setFilteredPokemons = () => { }
 
   const handleOnSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setFilteredPokemons(pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(event.target.value.toLowerCase())))
+    // TODO
   }
 
   const handleOnRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const res = pokemons.find(pokemon => pokemon.id === parseInt(event.target.id))
-    setSelectedPokemon(res)
+    //TODO
   }
 
   const handleOnFavouriteChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.checked) {
-      const res = pokemons.find(pokemon => pokemon.id === parseInt(event.target.id))
-      if (res) setFavourites((fav: Pokemon[]) => [...fav, res])
-    } else {
-      const filtered = favourites.filter(pokemon => pokemon.id !== parseInt(event.target.id))
-      setFavourites(filtered)
-    }
+    // TODO
   }
 
   return (
