@@ -1,12 +1,11 @@
-import React, { ChangeEvent, createContext, useEffect, useRef, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Pokemon } from '../interfaces/Pokemon'
 import { PokemonListProps } from '../interfaces/PokemonListProps'
 import { List } from './styled/List'
-import { ResetButton, Search, SearchHeader } from './styled/Search'
+import { Search, SearchHeader } from './styled/Search'
 
 export function PokemonsList({ pokemons, setSelectedPokemon, favourites, setFavourites }: PokemonListProps) {
   const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>(pokemons)
-  const searchRef = useRef<HTMLInputElement | null>(null)
 
   useEffect(() => {
     setFilteredPokemons(pokemons)
@@ -14,11 +13,6 @@ export function PokemonsList({ pokemons, setSelectedPokemon, favourites, setFavo
 
   const handleOnSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFilteredPokemons(pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(event.target.value.toLowerCase())))
-  }
-
-  const handleResetSearch = () => {
-    if (searchRef.current) searchRef.current.value = ''
-    setFilteredPokemons(pokemons)
   }
 
   const handleOnRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -42,9 +36,8 @@ export function PokemonsList({ pokemons, setSelectedPokemon, favourites, setFavo
       <Search>
         <SearchHeader>
           <label>Search by name:</label>
-          <ResetButton onClick={handleResetSearch}>RESET</ResetButton>
         </SearchHeader>
-        <input onChange={(event) => handleOnSearchChange(event)} ref={searchRef} />
+        <input onChange={(event) => handleOnSearchChange(event)} />
       </Search>
       <List>
         {filteredPokemons.map(pokemon => (
