@@ -2,7 +2,21 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Make sure you have right node version:
+
+```bash
+nvm use
+```
+
+Install deps:
+
+```bash
+npm i
+# or
+yarn
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
