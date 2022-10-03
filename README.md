@@ -4,6 +4,6 @@ TL;DR
 
 demo: [https://react-hooks-intro-na141rl7u-rafalgiemza.vercel.app/](https://react-hooks-intro-na141rl7u-rafalgiemza.vercel.app/)
 
-setup: [/readme/_setup.md](/readme/_setup.md)
+setup: [setup.md](setup.md)
 
-tasks: [/readme/todo.md](/readme/todo.md)
+tasks: [todo.md](todo.md)
