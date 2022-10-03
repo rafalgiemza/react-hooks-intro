@@ -1,24 +1,11 @@
-import React, { ChangeEvent, useState } from 'react'
-import { PokemonListProps } from '../interfaces/PokemonListProps'
+import React from 'react'
 import { List } from './styled/List'
+import { usePokemonList } from 'hooks/usePokemonLst'
 import { Search, SearchHeader } from './styled/Search'
+import { PokemonListProps } from '../interfaces/PokemonListProps'
 
-export function PokemonsList({ pokemons, setSelectedPokemon, favourites, setFavourites }: PokemonListProps) {
-  // TODO 1.1
-  const filteredPokemons = pokemons
-  const setFilteredPokemons = () => { }
-
-  const handleOnSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // TODO 1.2
-  }
-
-  const handleOnRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
-    //TODO 2.2
-  }
-
-  const handleOnFavouriteChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // TODO 4.3
-  }
+export function PokemonsList(props: PokemonListProps) {
+  const pokemonList = usePokemonList(props)
 
   return (
     <div>
@@ -27,22 +14,22 @@ export function PokemonsList({ pokemons, setSelectedPokemon, favourites, setFavo
         <SearchHeader>
           <label>Search by name:</label>
         </SearchHeader>
-        <input onChange={(event) => handleOnSearchChange(event)} />
+        <input onChange={(event) => pokemonList.handleOnSearchChange(event)} />
       </Search>
       <List>
-        {filteredPokemons.map(pokemon => (
+        {pokemonList.filteredPokemons.map(pokemon => (
           <div key={pokemon.id}>
             <input
               id={pokemon.id.toString()}
               name='pokemonRadioInput'
               type='radio'
-              onChange={(event) => handleOnRadioChange(event)}
+              onChange={(event) => pokemonList.handleOnRadioChange(event)}
             />
             <input
               id={pokemon.id.toString()}
               name="pokemonCheckboxInput"
               type='checkbox'
-              onChange={(event) => handleOnFavouriteChange(event)}
+              onChange={(event) => pokemonList.handleOnFavouriteChange(event)}
             />
             <span>
               {pokemon.name}
@@ -53,4 +40,3 @@ export function PokemonsList({ pokemons, setSelectedPokemon, favourites, setFavo
     </div >
   )
 }
-
